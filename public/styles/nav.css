@@ -22,3 +22,16 @@
   font-size: 2rem;
   line-height: 80px;
 }
+
+button#compose {
+  height: 63px;
+  font-size: 18px;
+  color: #009F87;
+  background-color: #E7FDFF;
+  border: 1px solid black;
+  border-radius: 7px;
+  position: relative;
+  float: right;
+  top: 9px;
+  right: 10px;
+}

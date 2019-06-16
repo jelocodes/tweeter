@@ -7,6 +7,7 @@ section.new-tweet {
   position: relative;
   top: 3em;
   margin: 0 2em .8em 2em;
+  display: none;
 }
 
 span.counter {

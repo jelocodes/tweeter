@@ -26,6 +26,14 @@ $(document).ready(function(){
     return $tweetArticle.append($header).append($tweet).append($footer);
   }
 
+  $('button#compose').click(() => {
+    if ($('section.new-tweet').is(':hidden')) {
+      $('section.new-tweet').slideDown('slow', () => $('textarea').focus());
+    } else {
+      $('section.new-tweet').slideUp('slow', () => $('section.new-tweet').hide());
+    }
+  })
+
 
   $("#new-tweet-form").submit(event => {
     event.preventDefault();
