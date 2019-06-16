@@ -54,6 +54,7 @@ $(document).ready(function(){
       .done(function(msg) {
         loadTweets(true);
         $('textarea').val('');
+        $('span.counter')[0].innerText = '140';
       });
     }
  });
