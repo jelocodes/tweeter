@@ -1,3 +1,7 @@
 $(document).ready(function() {
-  $('textarea').on('input propertychange', () => $('span.counter')[0].innerText = 140 - $('textarea').val().length)
-});
+  const domElem = $('span.counter');
+  $('textarea').on('input propertychange', () => {
+    domElem[0].innerText = 140 - $('textarea').val().length;
+    (parseInt(domElem[0].innerText) < 0) ? domElem.css('color', 'red') : domElem.css('color', 'black');
+  });
+})
