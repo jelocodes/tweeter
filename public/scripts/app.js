@@ -26,14 +26,20 @@ $(document).ready(function(){
 
     let inputLength = $('textarea').val().length;
 
-    $.ajax({
-      method: "POST",
-      url: "/tweets",
-      data: $('#new-tweet-form').serialize()
-    })
-    .done(function(msg) {
-      loadTweets(true);
-    });
+    if (inputLength > 140) {
+      alert('Error: Tweet exceeds 140 characters.');
+    } else if (inputLength < 1) {
+      alert('Error: Cannot send empty tweet');
+    } else {
+      $.ajax({
+        method: "POST",
+        url: "/tweets",
+        data: $('#new-tweet-form').serialize()
+      })
+      .done(function(msg) {
+        loadTweets(true);
+      });
+    }
  });
 
 
