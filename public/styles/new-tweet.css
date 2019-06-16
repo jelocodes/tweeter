@@ -51,3 +51,8 @@ textarea {
   margin-top: 1.5em;
   resize: none;
 }
+
+#error {
+  color: red;
+  display: none;
+}

@@ -42,9 +42,9 @@ $(document).ready(function(){
     let inputLength = $('textarea').val().length;
 
     if (inputLength > 140) {
-      alert('Error: Tweet exceeds 140 characters.');
+      $('#error').css({'display': 'block', 'position': 'relative', 'left': '1em', 'top': '.3em'}).text('Error: Tweet exceeds 140 characters.');
     } else if (inputLength < 1) {
-      alert('Error: Cannot send empty tweet');
+      $('#error').css({'display': 'block', 'position': 'relative', 'left': '1em', 'top': '.3em'}).text('Error: Cannot send empty tweet.');
     } else {
       $.ajax({
         method: "POST",
@@ -53,6 +53,7 @@ $(document).ready(function(){
       })
       .done(function(msg) {
         loadTweets(true);
+        $('textarea').val('');
       });
     }
  });
