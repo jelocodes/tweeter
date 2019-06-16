@@ -48,4 +48,5 @@ h2 {
 textarea {
   width: 100%;
   margin-top: 1.5em;
+  resize: none;
 }
