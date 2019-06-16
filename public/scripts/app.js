@@ -1,4 +1,11 @@
 $(document).ready(function(){
+
+  const escape = (str) => {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
   const createTweetElement = (tweetObject) => {
     let $tweetArticle = $('<article>', {class: 'tweet'});
 
@@ -8,7 +15,7 @@ $(document).ready(function(){
 
     let $header = $('<header>').append($img).append($userName).append($handle);
 
-    let $tweet = $('<p>', {class: 'tweet'}).append(`${tweetObject.content.text}`);
+    let $tweet = $('<p>', {class: 'tweet'}).append(`${escape(tweetObject.content.text)}`);
 
     let $date = $('<p>', {class: 'date'}).append(`${Math.ceil((Math.abs(new Date() - new Date(tweetObject.created_at))) / (1000 *3600 * 24))} days ago`);
 
