@@ -24,3 +24,13 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ main {
+  width: 35em;
+  margin: 0 auto;
+  background-color: #fff;
+  color: #000;
+  position: relative;
+  top: 80px;
+  overflow: hidden;
+}
