@@ -35,6 +35,22 @@ $(document).ready(function(){
   //   "created_at": 1461116232227
   // }
 
+  $("#new-tweet-form").submit(event => {
+    event.preventDefault();
+    $('#error').css('display', 'none');
+
+    let inputLength = $('textarea').val().length;
+
+    $.ajax({
+      method: "POST",
+      url: "/tweets",
+      data: $('#new-tweet-form').serialize()
+    })
+    .done(function(msg) {
+      console.log(msg);
+    });
+ });
+
   const data = [
     {
       "user": {
