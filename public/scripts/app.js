@@ -75,8 +75,6 @@ $(document).ready(function(){
     } else {
       $.ajax('/tweets', { method: 'GET' })
       .then(function (theTweets) {
-        console.log('Success: ', theTweets);
-        console.log(theTweets);
 
         for (tweetObject of theTweets) {
           $('#tweet-container').append(createTweetElement(tweetObject));
