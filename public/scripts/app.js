@@ -13,7 +13,7 @@ $(document).ready(function(){
     let minutes = Math.round(millisec / (1000 * 60));
     let hours = Math.round(millisec / (1000 * 60 * 60));
     let days = Math.round(millisec / (1000 * 60 * 60 * 24));
-    let years = Math.round(millisec / (1000 * 60 * 60 * 24 * 365))
+    let years = Math.round(millisec / (1000 * 60 * 60 * 24 * 365));
 
     if (seconds < 60) {
       return `${seconds} secs ago`;
@@ -48,7 +48,7 @@ $(document).ready(function(){
 
     let $date = $('<p>', {class: 'date'}).append(`${timeConverted(Date.now() - tweetObject.created_at)}`);
 
-    let $icons = $('<span id="icons"><i class="fa fa-flag"></i> <i class="fa fa-retweet"></i> <i class="fa fa-heart"></i></span>')
+    let $icons = $('<span id="icons"><i class="fa fa-flag"></i> <i class="fa fa-retweet"></i> <i class="fa fa-heart"></i></span>');
 
     let $footer = $('<footer>').append($date).append($icons);
 
