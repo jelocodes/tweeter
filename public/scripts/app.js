@@ -7,6 +7,32 @@ $(document).ready(function(){
     return div.innerHTML;
   }
 
+  const timeConverted = (millisec) => {
+    let seconds = Math.round(millisec / 1000);
+    let minutes = Math.round(millisec / (1000 * 60));
+    let hours = Math.round(millisec / (1000 * 60 * 60));
+    let days = Math.round(millisec / (1000 * 60 * 60 * 24));
+    let years = Math.round(millisec / (1000 * 60 * 60 * 24 * 365))
+
+    if (seconds < 60) {
+      return `${seconds} secs ago`;
+    }
+
+    if (minutes < 60) {
+      return `${minutes} mins ago`;
+    }
+
+    if (hours < 24) {
+      return `${hours} hours ago`;
+    }
+
+    if (days < 365) {
+      return `${days} days ago`;
+    }
+
+    return `${years} years ago`;
+  };
+
   // Create new twitter article DOM element from fetched database object
   const createTweetElement = (tweetObject) => {
     let $tweetArticle = $('<article>', {class: 'tweet'});
@@ -19,7 +45,7 @@ $(document).ready(function(){
 
     let $tweet = $('<p>', {class: 'tweet'}).append(`${escape(tweetObject.content.text)}`);
 
-    let $date = $('<p>', {class: 'date'}).append(`${Math.ceil((Math.abs(new Date() - new Date(tweetObject.created_at))) / (1000 *3600 * 24))} days ago`);
+    let $date = $('<p>', {class: 'date'}).append(`${timeConverted(Date.now() - tweetObject.created_at)}`);
 
     let $icons = $('<span id="icons"><i class="fa fa-flag"></i> <i class="fa fa-retweet"></i> <i class="fa fa-heart"></i></span>')
 
