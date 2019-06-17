@@ -1,11 +1,13 @@
 $(document).ready(function(){
 
+  // Safely escape HTML strings
   const escape = (str) => {
     var div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   }
 
+  // Create new twitter article DOM element from fetched database object
   const createTweetElement = (tweetObject) => {
     let $tweetArticle = $('<article>', {class: 'tweet'});
 
@@ -26,6 +28,33 @@ $(document).ready(function(){
     return $tweetArticle.append($header).append($tweet).append($footer);
   }
 
+  // Appends the new created tweet elements to the DOM
+  const renderTweets = (tweetObjectArray) => {
+    for (tweetObject of tweetObjectArray) {
+      $('#tweet-container').append(createTweetElement(tweetObject));
+    }
+  }
+
+  // AJAX request to load tweets from the database
+  const loadTweets = (last = false) => {
+    if (last === true) {
+      $.ajax('/tweets', { method: 'GET' })
+      .then(function (theTweets) {
+        $('#tweet-container').prepend(createTweetElement(theTweets[0]));
+      });
+    } else {
+      $.ajax('/tweets', { method: 'GET' })
+      .then(function (theTweets) {
+
+        for (tweetObject of theTweets) {
+          $('#tweet-container').append(createTweetElement(tweetObject));
+        }
+
+      });
+    }
+  }
+
+  // Slide the compose form up and down on button press
   $('button#compose').click(() => {
     if ($('section.new-tweet').is(':hidden')) {
       $('section.new-tweet').slideDown('slow', () => $('textarea').focus());
@@ -34,7 +63,7 @@ $(document).ready(function(){
     }
   })
 
-
+  // Logic to handle new tweet submissions including error handling
   $("#new-tweet-form").submit(event => {
     event.preventDefault();
     $('#error').css('display', 'none');
@@ -58,31 +87,6 @@ $(document).ready(function(){
       });
     }
  });
-
-
-  const renderTweets = (tweetObjectArray) => {
-    for (tweetObject of tweetObjectArray) {
-      $('#tweet-container').append(createTweetElement(tweetObject));
-    }
-  }
-
-  const loadTweets = (last = false) => {
-    if (last === true) {
-      $.ajax('/tweets', { method: 'GET' })
-      .then(function (theTweets) {
-        $('#tweet-container').prepend(createTweetElement(theTweets[0]));
-      });
-    } else {
-      $.ajax('/tweets', { method: 'GET' })
-      .then(function (theTweets) {
-
-        for (tweetObject of theTweets) {
-          $('#tweet-container').append(createTweetElement(tweetObject));
-        }
-
-      });
-    }
-  }
 
 
   loadTweets();
