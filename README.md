@@ -26,7 +26,7 @@ Built with HTML3, CSS3, JS/jQuery and AJAX, with a Node.js Express and MongoDB b
 - Add user log ins
 
 ## Contributing
-This project is still under development, and bug and pull requests are welcome on Github at https://github.com/jelocodes/tiny-app. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
+This project is still under development, and bug and pull requests are welcome on Github at https://github.com/jelocodes/tweeter. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
 ## License
 This codebase is available as open source under the terms of the MIT License.
