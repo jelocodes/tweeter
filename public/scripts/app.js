@@ -70,7 +70,7 @@ $(document).ready(function(){
     if (last === true) {
       $.ajax('/tweets', { method: 'GET' })
       .then(function (theTweets) {
-        $('#tweet-container').prepend(createTweetElement(theTweets[theTweets.length-1]));
+        $('#tweet-container').prepend(createTweetElement(theTweets[0]));
       });
     } else {
       $.ajax('/tweets', { method: 'GET' })
