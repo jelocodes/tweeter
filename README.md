@@ -2,7 +2,11 @@
 
 Tweeter is a simple, single-page Twitter clone as a practice project.
 
-Built with HTML5, CSS3, JS/jQuery and AJAX, with a Node.js Express and MongoDB back-end. Compose tweets and see error checking functionality, and watch the page asynchronously update as new tweets are populated.  
+Built with HTML5, CSS3, JS/jQuery and AJAX, with a Node.js Express and MongoDB back-end. Compose tweets and see error checking functionality, and watch the page asynchronously update as new tweets are populated.
+
+## Sreenshots
+
+!["The app in action"](https://github.com/jelocodes/tweeter/blob/master/docs/tweeter.gif?raw=true)
 
 ## Getting Started
 
