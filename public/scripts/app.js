@@ -7,6 +7,7 @@ $(document).ready(function(){
     return div.innerHTML;
   }
 
+  // Convert timestamp
   const timeConverted = (millisec) => {
     let seconds = Math.round(millisec / 1000);
     let minutes = Math.round(millisec / (1000 * 60));
@@ -117,4 +118,3 @@ $(document).ready(function(){
 
   loadTweets();
 })
-
