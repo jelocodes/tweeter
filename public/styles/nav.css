@@ -38,13 +38,14 @@ button#compose {
 }
 
 button#compose:hover {
-    height: 63px;
-    font-size: 18px;
-    color: #000;
-    background-color: #fff;
-    border: 1px solid black;
-    border-radius: 7px;
-    position: relative;
-    float: right;
-    top: 9px;
-    right: 10px;
+  height: 63px;
+  font-size: 18px;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 7px;
+  position: relative;
+  float: right;
+  top: 9px;
+  right: 10px;
+}
